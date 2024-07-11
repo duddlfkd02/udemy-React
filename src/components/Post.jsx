@@ -1,10 +1,10 @@
-function Post(props) {
+import PostList from './PostList';
 
+function Post() {
     return (
-        <div>
-            <p>{props.author}</p>
-            <p>{props.body}</p>
-        </div >
+        <ul>
+            <PostList />
+        </ul>
     );
 }
 
