@@ -1,12 +1,13 @@
-import classes from './Post.module.css';
+const names = ["happy", "Manuel"];
 
-function Post(props) {
-    return (
-        <li className={classes.post}>
-            <p className={classes.author}>{props.author}</p>
-            <p className={classes.text}>{props.body}</p>
-        </li>
-    );
-}
+const Post = () => {
+  const chosenName = Math.random() > 0.5 ? names[0] : names[1];
+  return (
+    <div>
+      <p>{chosenName}</p>
+      <p>내용입니다.</p>
+    </div>
+  );
+};
 
 export default Post;
