@@ -21,19 +21,30 @@ const PostsList = () => {
     setEnterAuthor(e.target.value);
   };
 
+  // let modalContent;
+
+  // if (modalIsVisible) {
+  //   modalContent = (
+  //     <Modal onClose={hideModalHandler}>
+  //       <NewPost
+  //         onBodyChange={bodyChangeHandler}
+  //         onAuthorChange={authorChangeHandler}
+  //       />
+  //     </Modal>
+  //   );
+  // }
+
   return (
     <>
-      {modalIsVisible ? (
+      {/* {modalContent} */}
+      {modalIsVisible && (
         <Modal onClose={hideModalHandler}>
           <NewPost
             onBodyChange={bodyChangeHandler}
             onAuthorChange={authorChangeHandler}
           />
         </Modal>
-      ) : (
-        false
       )}
-
       <ul className={classes.posts}>
         <Post author={enterAuthor} body={enterBody} />
         <Post author="작가명2" body="내용입니다2" />
