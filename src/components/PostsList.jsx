@@ -2,27 +2,20 @@ import Post from "./Post";
 import NewPost from "./NewPost";
 import Modal from "./Modal";
 import classes from "./PostsList.module.css";
+import { useState } from "react";
 
 const PostsList = ({ isPosting, onStopPosting }) => {
-  // let modalContent;
+  const [posts, setPosts] = useState([]);
 
-  // if (modalIsVisible) {
-  //   modalContent = (
-  //     <Modal onClose={hideModalHandler}>
-  //       <NewPost
-  //         onBodyChange={bodyChangeHandler}
-  //         onAuthorChange={authorChangeHandler}
-  //       />
-  //     </Modal>
-  //   );
-  // }
+  const addPostHandler = (postData) => {
+    setPosts((existingPosts) => [postData, ...existingPosts]);
+  };
 
   return (
     <>
-      {/* {modalContent} */}
       {isPosting && (
         <Modal onClose={onStopPosting}>
-          <NewPost onCancel={onStopPosting} />
+          <NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
         </Modal>
       )}
       <ul className={classes.posts}>
